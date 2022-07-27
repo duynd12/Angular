@@ -1,0 +1,23 @@
+.pad {
+    padding-bottom: 20px;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    background-size: contain;
+}
+
+.a_tag {
+    cursor: pointer;
+    margin-bottom: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+}

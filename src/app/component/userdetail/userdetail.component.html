@@ -1,0 +1,106 @@
+<form action="" #ngFormUser="ngForm">
+
+    <div class="main-body">
+        <div class="row">
+            <a routerLink="/users" class="header_link"><i class="fa-solid fa-arrow-left"
+                    style="margin-right: 10px;"></i>Back to home</a>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img [src]="data.image" alt="">
+                        </div>
+                        <div class="mt-3">
+                            <h4 style="text-align: center">Name</h4>
+                            <p class="text-secondary mb-1" style="text-align:center">{{data.firstName}}</p>
+                            <p class="text-muted font-size-sm" style="text-align:center">ID :{{data.id}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">First Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.firstName}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Last Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.lastName}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Date of Birth</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.dob}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.email}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.address['street']}} - {{data.address['district']}} - {{data.address['city']}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary ">
+                                <input type="text" [disabled]="mode==='locked'" class="form-control"
+                                    value="{{data.phone}}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Gender</h6>
+                            </div>
+                            <div class="col-sm-2 mb-3 text-secondary ">
+                                <input class="form-check-input" type="radio" name="gender" id=""
+                                    [(ngModel)]="data.gender" value="male" disabled="true">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="col-sm-2 text-secondary ">
+                                <input class="form-check-input" type="radio" name="gender" id="" value="female"
+                                    [(ngModel)]="data.gender" disabled="true">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <a [routerLink]="['/users',data.id,'edit']" class="btn btn-primary a_tag"
+                        style="width:200px;margin-left:100px;margin-bottom: 20px;height:50px">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

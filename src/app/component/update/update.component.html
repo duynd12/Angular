@@ -1,0 +1,128 @@
+<a href="" [routerLink]="['/users',data.id]" class="header_link"><i class="fa-solid fa-arrow-left"
+        style="margin-right: 10px;"></i>Back to userDetail</a>
+<form style="margin-top:20px;" #formG="ngForm" (ngSubmit)="onSubmit(formG)">
+    <div class="row">
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="firstName" [(ngModel)]="data.firstName" #firstName="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="firstName?.errors?.['required']">
+                    Firstname is required
+                </div>
+            </div>
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="lastName"
+                    [(ngModel)]="data.lastName" #lastName="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="lastName?.errors?.['required']">
+                    Lastname is required
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="email" [(ngModel)]="data.email"
+                    placeholder="" #email="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="email?.errors?.['required']">
+                    Email is required
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;" ngModelGroup="address">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail1" class="form-label">Street</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="street" [(ngModel)]="data.address.street" #street="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="street?.errors?.['required']">
+                    Street is required
+                </div>
+            </div>
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">District</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="district" placeholder=""
+                    [(ngModel)]="data.address.district" #district="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="district?.errors?.['required']">
+                    District is required
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">City</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="city"
+                    [(ngModel)]="data.address.city" #city="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="city?.errors?.['required']">
+                    City is required
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail12" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="exampleInputEmail12" aria-describedby="emailHelp" name="dob"
+                    [(ngModel)]="data.dob" value="{{data.dob}}" #dob="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="dob?.errors?.['required']">
+                    DateOfBirth is required
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3" style="margin-left:50px">
+                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="phone" [(ngModel)]="data.phone" #phoneNumber="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="phoneNumber?.errors?.['required']">
+                    Phone is required
+                </div>
+            </div>
+            <!-- <div id=" emailHelp" class="form-text">We'll never share your email with anyone else.
+            </div> -->
+            <div class="col-lg-6 mb-3" style="display:flex;align-items:center;margin-left: 80px;">
+                <label for="">Gioi tinh</label>
+                <div class="" style="margin-left:50px">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="male" id="flexRadioDefault1"
+                            [(ngModel)]="data.gender">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="female" id="flexRadioDefault2"
+                            [(ngModel)]="data.gender" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-12" style="margin-bottom: 10px;">
+                    <label for="">Ảnh</label>
+                </div>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    [(ngModel)]="data.image" #image="ngModel" required>
+                <div class="col alert alert-danger" role="alert" *ngIf="image?.errors?.['required']">
+                    Image is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>data : {{formG.value | json}}</p>
+    <!-- <button class="btn btn-primary" type="submit">Click</button> -->
+    <button type="submit" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="updateUser(formG.value)"
+        class="btn btn-primary">Submit</button>
+</form>
+<!-- (click)="updateUser(formG.value)" -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Sửa dữ liệu thành công
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-linkRedirect" (click)="redirectToUserDetail()"
+                    data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

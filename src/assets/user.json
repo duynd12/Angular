@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "firstName": "Duy",
+      "lastName": "Nguyen Dang",
+      "email": "duy88706@gmail.com",
+      "address": {
+        "street": "Nguyen Trai",
+        "district": "Thanh Xuan",
+        "city": "Ha Noi"
+      },
+      "phone": "0848054462",
+      "dob": "2022-07-09",
+      "gender": "male",
+      "id": 1
+    },
+    {
+      "firstName": "Duy12",
+      "lastName": "Nguyen Dang",
+      "email": "duy88076@gmail.com",
+      "address": {
+        "street": "1",
+        "district": "1",
+        "city": "1"
+      },
+      "phone": "0336127780",
+      "dob": "2022-06-30",
+      "gender": "female",
+      "image": "https://hinhnen123.com/wp-content/uploads/2021/07/Bo-suu-tap-1001-hinh-anh-mang-dep-an-tuong-nhat-nam-2021.jpg",
+      "id": 2
+    },
+    {
+      "firstName": "Girl",
+      "lastName": "Beautiful",
+      "email": "girl@gmail.com",
+      "address": {
+        "street": "Xuan Thuy",
+        "district": "Cau Giay",
+        "city": "Ha Noi"
+      },
+      "phone": "0336127780",
+      "dob": "2022-07-01",
+      "gender": "female",
+      "image": "https://upanh123.com/wp-content/uploads/2021/04/anh-dep-tren-mang1.jpg",
+      "id": 3
+    },
+    {
+      "firstName": "Oc",
+      "lastName": "Sen",
+      "email": "ocsen@gmail.com",
+      "address": {
+        "street": "Tay Son",
+        "district": "Dong Da",
+        "city": "Ha Noi"
+      },
+      "phone": "0336127780",
+      "dob": "2022-07-14",
+      "gender": "female",
+      "image": "https://baoquocte.vn/stores/news_dataimages/dieulinh/012020/29/15/nhung-buc-anh-dep-tuyet-voi-ve-tinh-ban.jpg",
+      "id": 4
+    }
+  ]
+}

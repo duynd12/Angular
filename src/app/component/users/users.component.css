@@ -1,0 +1,9 @@
+img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.div_btn {
+    float: right;
+}

@@ -1,0 +1,33 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.header_link {
+    text-decoration: none;
+}
+
+.modal-dialog {
+    margin-top: 120px;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-content {
+    /* width: 300px;
+    height: 200px; */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-circle-check {
+    display: block;
+    font-size: 70px;
+    margin-top: 10px;
+    color: green
+}

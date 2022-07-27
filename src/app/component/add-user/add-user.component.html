@@ -1,0 +1,125 @@
+<a href="" [routerLink]="['users']"><i class="fa-solid fa-arrow-left" style="margin-right: 10px;"></i>Back to home</a>
+<form [formGroup]="formGroup" style="margin-top:20px;" (ngSubmit)="onSave()">
+    <div class="row">
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    formControlName="firstName">
+                <div *ngIf="f['firstName'].invalid && f['firstName'].touched" class="text_mess-danger">Không được để
+                    trống</div>
+                <!-- <small>First Name khong duoc de trong</small> -->
+            </div>
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="lastName">
+                <div *ngIf="f['lastName'].invalid && f['lastName'].touched" class="text_mess-danger">Không được để
+                    trống</div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="email"
+                    [pattern]="regexEmail">
+                <div *ngIf="f['email'].invalid && f['email'].touched" class="text_mess-danger">
+                    <span *ngIf="f['email'].errors?.['required']">Không được để trống</span>
+                    <span *ngIf="f['email'].hasError('pattern')">Email không hợp lệ</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;" formGroupName="address">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail1" class="form-label">Street</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    formControlName="street">
+                <div *ngIf="f['address'].get('street')?.invalid && f['address'].get('street')?.touched "
+                    class="text_mess-danger">
+                    Không được để trống
+                </div>
+            </div>
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">District</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="district">
+                <div *ngIf="f['address'].get('district')?.invalid && f['address'].get('district')?.touched "
+                    class="text_mess-danger">
+                    Không được để trống
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">City</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="city">
+                <div *ngIf="f['address'].get('city')?.invalid && f['address'].get('city')?.touched "
+                    class="text_mess-danger">
+                    Không được để trống
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="display: flex;justify-content: space-between;">
+            <div class="col-lg-3 mb-3">
+                <label for="exampleInputEmail1" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    formControlName="dob">
+                <div *ngIf="f['dob'].invalid && f['dob'].touched" class="text_mess-danger">Không được để
+                    trống</div>
+            </div>
+            <div class="col-lg-4 mb-3" style="margin-left:50px">
+                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    formControlName="phone" [pattern]="regexPhoneNumber">
+                <div *ngIf="f['phone'].invalid && f['phone'].touched" class="text_mess-danger">
+                    <span *ngIf="f['phone'].errors?.['required']">Không được để trống</span>
+                    <span *ngIf="f['phone'].hasError('pattern')">SĐT không hợp lệ</span>
+                </div>
+            </div>
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <div class="col-lg-6 mb-3" style="display:flex;align-items:center;margin-left: 80px;">
+                <label for="">Gioi tinh</label>
+                <div class="" style="margin-left:50px">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1"
+                            formControlName="gender" value="male">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2"
+                            formControlName="gender" checked value="female">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12" style="margin-bottom: 10px;">
+                <label for="">Ảnh</label>
+            </div>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="image">
+            <div *ngIf="f['image'].invalid && f['image'].touched" class="text_mess-danger">Không được để
+                trống</div>
+        </div>
+    </div>
+    <p>Form Value :{{formGroup.value|json}}</p>
+    <!-- <button class="btn btn-primary" (click)='save1()' [disabled]="formGroup.invalid">click</button> -->
+    <button type="submit" [disabled]="formGroup.invalid" (click)="save(formGroup.value)" data-bs-target="#exampleModal"
+        data-bs-toggle="modal" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Thêm dữ liệu thành công
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-linkRedirect" (click)="directiveHome()"
+                    data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
